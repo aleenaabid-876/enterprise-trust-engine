@@ -33,7 +33,7 @@ export default function App() {
     formData.append('selfie_video', selfieFile || new Blob(['dummy'], {type: 'video/mp4'}));
 
     try {
-      const res = await fetch('http://localhost:8000/api/verify', {
+      const res = await fetch('https://enterprise-trust-engine-5geb.vercel.app', {
         method: 'POST',
         body: formData,
       });
