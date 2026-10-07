@@ -55,7 +55,7 @@ export default function App() {
     setQuestion('');
 
     try {
-      const res = await fetch('https://enterprise-trust-engine.vercel.app', {
+      const res = await fetch('http://localhost:8000/api/copilot', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question: qText })
