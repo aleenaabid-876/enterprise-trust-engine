@@ -18,7 +18,7 @@ export default function App() {
   ]);
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/dashboard-stats')
+    fetch('https://enterprise-trust-engine-5geb.vercel.app/api/dashboard-stats')
       .then(res => res.json())
       .then(data => setStats(data))
       .catch(err => console.error(err));
@@ -33,7 +33,7 @@ export default function App() {
     formData.append('selfie_video', selfieFile || new Blob(['dummy'], {type: 'video/mp4'}));
 
     try {
-      const res = await fetch('https://enterprise-trust-engine-5geb.vercel.app', {
+      const res = await fetch('https://enterprise-trust-engine-5geb.vercel.app/api/verify', {
         method: 'POST',
         body: formData,
       });
@@ -55,7 +55,7 @@ export default function App() {
     setQuestion('');
 
     try {
-      const res = await fetch('https://enterprise-trust-engine-5geb.vercel.app', {
+      const res = await fetch('https://enterprise-trust-engine-5geb.vercel.app/api/copilot', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question: qText })
